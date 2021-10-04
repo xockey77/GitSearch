@@ -16,7 +16,7 @@ class ReposInfo: Codable {
     
     var name = ""
     var description: String?
-    var url: String?
+    var html_url: String?
     var updated_at: String?
     var stargazers_count: Int
     var forks_count: Int

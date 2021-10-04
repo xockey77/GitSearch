@@ -67,12 +67,27 @@ class RepositoriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.repositCell, for: indexPath) as! RepositCell
             cell.nameLabel.text = repositories[indexPath.row].name
             cell.descriptionLabel.text = repositories[indexPath.row].description
-            cell.urlLabel.text = repositories[indexPath.row].url
+            cell.urlLabel.text = repositories[indexPath.row].html_url
             cell.updated_atLabel.text = repositories[indexPath.row].updated_at
-            cell.stargazers_countLabel.text = "\(repositories[indexPath.row].stargazers_count)"
-            cell.forks_countLabel.text = "\(repositories[indexPath.row].forks_count)"
+            cell.stargazers_countLabel.text = "⭐️ \(repositories[indexPath.row].stargazers_count)"
+            cell.forks_countLabel.text = "⑂ \(repositories[indexPath.row].forks_count)"
             cell.languageLabel.text = repositories[indexPath.row].language
         return cell
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let url = URL(string: repositories[indexPath.row].html_url!) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if repositories.count == 0 || isLoading {
+            return nil
+        }
+        else {
+            return indexPath
         }
     }
 }
@@ -130,20 +145,3 @@ extension RepositoriesTableViewController {
         }
     }
 }
-
-
-/*
- func parseFollowers(data: Data) -> [SearchResult] {
-     do {
-         var followers = [SearchResult]()
-         
-         let decoder = JSONDecoder()
-         followers = try decoder.decode([SearchResult].self, from: data)
-         return followers
-     } catch {
-         print("JSON Error: \(error)")
-         return []
-     }
- }
- */
-
