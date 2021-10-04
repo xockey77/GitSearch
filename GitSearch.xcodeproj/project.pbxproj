@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		3D12E02E2707185A0087157F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E02D2707185A0087157F /* AppDelegate.swift */; };
 		3D12E0302707185A0087157F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E02F2707185A0087157F /* SceneDelegate.swift */; };
-		3D12E0322707185A0087157F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E0312707185A0087157F /* ViewController.swift */; };
+		3D12E0322707185A0087157F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E0312707185A0087157F /* SearchViewController.swift */; };
 		3D12E0352707185A0087157F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0332707185A0087157F /* Main.storyboard */; };
 		3D12E0372707185B0087157F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0362707185B0087157F /* Assets.xcassets */; };
 		3D12E03A2707185B0087157F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0382707185B0087157F /* LaunchScreen.storyboard */; };
+		3D12E04227072E370087157F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E04127072E370087157F /* SearchResult.swift */; };
+		3D12E0442708A3110087157F /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0432708A3110087157F /* SearchResultCell.xib */; };
+		3D12E0462708AAB60087157F /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E0452708AAB60087157F /* SearchResultCell.swift */; };
+		3D12E0482708AE870087157F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0472708AE870087157F /* NothingFoundCell.xib */; };
+		3D12E04A2708D0670087157F /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D12E0492708D0670087157F /* LoadingCell.xib */; };
+		3D12E04C2708E0310087157F /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12E04B2708E0300087157F /* UIImageView+DownloadImage.swift */; };
+		3DFDD7012709FAEA004BBF86 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */; };
+		3DFDD703270ACB21004BBF86 /* RepositCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFDD702270ACB21004BBF86 /* RepositCell.xib */; };
+		3DFDD705270ACCDA004BBF86 /* RepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDD704270ACCDA004BBF86 /* RepositCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D12E02A2707185A0087157F /* GitSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D12E02D2707185A0087157F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D12E02F2707185A0087157F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D12E0312707185A0087157F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D12E0312707185A0087157F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3D12E0342707185A0087157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D12E0362707185B0087157F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D12E0392707185B0087157F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D12E03B2707185B0087157F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D12E04127072E370087157F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		3D12E0432708A3110087157F /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		3D12E0452708AAB60087157F /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		3D12E0472708AE870087157F /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		3D12E0492708D0670087157F /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		3D12E04B2708E0300087157F /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		3DFDD702270ACB21004BBF86 /* RepositCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositCell.xib; sourceTree = "<group>"; };
+		3DFDD704270ACCDA004BBF86 /* RepositCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +76,17 @@
 			children = (
 				3D12E02D2707185A0087157F /* AppDelegate.swift */,
 				3D12E02F2707185A0087157F /* SceneDelegate.swift */,
-				3D12E0312707185A0087157F /* ViewController.swift */,
+				3D12E0312707185A0087157F /* SearchViewController.swift */,
+				3D12E0492708D0670087157F /* LoadingCell.xib */,
+				3D12E0472708AE870087157F /* NothingFoundCell.xib */,
+				3D12E0452708AAB60087157F /* SearchResultCell.swift */,
+				3D12E04B2708E0300087157F /* UIImageView+DownloadImage.swift */,
+				3D12E04127072E370087157F /* SearchResult.swift */,
+				3D12E0432708A3110087157F /* SearchResultCell.xib */,
+				3DFDD702270ACB21004BBF86 /* RepositCell.xib */,
+				3DFDD704270ACCDA004BBF86 /* RepositCell.swift */,
 				3D12E0332707185A0087157F /* Main.storyboard */,
+				3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */,
 				3D12E0362707185B0087157F /* Assets.xcassets */,
 				3D12E0382707185B0087157F /* LaunchScreen.storyboard */,
 				3D12E03B2707185B0087157F /* Info.plist */,
@@ -127,6 +154,10 @@
 			files = (
 				3D12E03A2707185B0087157F /* LaunchScreen.storyboard in Resources */,
 				3D12E0372707185B0087157F /* Assets.xcassets in Resources */,
+				3DFDD703270ACB21004BBF86 /* RepositCell.xib in Resources */,
+				3D12E04A2708D0670087157F /* LoadingCell.xib in Resources */,
+				3D12E0442708A3110087157F /* SearchResultCell.xib in Resources */,
+				3D12E0482708AE870087157F /* NothingFoundCell.xib in Resources */,
 				3D12E0352707185A0087157F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +169,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D12E0322707185A0087157F /* ViewController.swift in Sources */,
+				3D12E0322707185A0087157F /* SearchViewController.swift in Sources */,
 				3D12E02E2707185A0087157F /* AppDelegate.swift in Sources */,
+				3DFDD705270ACCDA004BBF86 /* RepositCell.swift in Sources */,
+				3D12E04C2708E0310087157F /* UIImageView+DownloadImage.swift in Sources */,
+				3D12E04227072E370087157F /* SearchResult.swift in Sources */,
+				3DFDD7012709FAEA004BBF86 /* RepositoriesTableViewController.swift in Sources */,
 				3D12E0302707185A0087157F /* SceneDelegate.swift in Sources */,
+				3D12E0462708AAB60087157F /* SearchResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

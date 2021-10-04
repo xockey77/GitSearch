@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JFI-aD-foI">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Users-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GitSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-Xd-OVz">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5Ez-wN-emc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jKn-ir-Ssk"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Git user name or user login" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-V2-wcD">
+                                <rect key="frame" x="0.0" y="44" width="375" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bQf-hg-ZrN"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2B4-Xd-OVz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="11V-Ht-OZw"/>
+                            <constraint firstItem="2B4-Xd-OVz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DTV-ZP-9QT"/>
+                            <constraint firstItem="2B4-Xd-OVz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F7h-lL-Dww"/>
+                            <constraint firstItem="iXo-V2-wcD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NiN-Eh-BLN"/>
+                            <constraint firstItem="iXo-V2-wcD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YfK-7X-0kB"/>
+                            <constraint firstItem="iXo-V2-wcD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h2I-qc-7A9"/>
+                            <constraint firstItem="2B4-Xd-OVz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xkx-dT-7zD"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Users" id="T2G-ia-GdS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="iXo-V2-wcD" id="trh-mr-bFu"/>
+                        <outlet property="tableView" destination="2B4-Xd-OVz" id="4wq-Im-BRr"/>
+                        <segue destination="nXi-fJ-zJc" kind="show" identifier="ShowRepositories" id="UHh-bx-SsE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="959.20000000000005" y="97.601199400299862"/>
+        </scene>
+        <!--Repositories-->
+        <scene sceneID="ruk-so-OvV">
+            <objects>
+                <tableViewController id="nXi-fJ-zJc" customClass="RepositoriesTableViewController" customModule="GitSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bM8-MX-cSc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reposCell" rowHeight="56" id="SeX-lO-pbn">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SeX-lO-pbn" id="h1Z-o5-7xy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nXi-fJ-zJc" id="lNI-18-Peg"/>
+                            <outlet property="delegate" destination="nXi-fJ-zJc" id="XZn-YE-QGP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Repositories" id="Kog-Lj-1st"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meu-Ri-gGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="98"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f1y-LL-bDB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JFI-aD-foI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hgv-ik-9V2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GcR-Fp-QID"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vu-cZ-Ctn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="97.601199400299862"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
