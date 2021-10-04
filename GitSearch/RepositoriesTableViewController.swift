@@ -34,6 +34,9 @@ class RepositoriesTableViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
         
         self.clearsSelectionOnViewWillAppear = false
+        
+        print("\(searchResult.repos_url)")
+        loadRepositories(searchResult.repos_url)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,11 +65,85 @@ class RepositoriesTableViewController: UITableViewController {
             return tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.nothingFoundCell, for: indexPath)
         } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.repositCell, for: indexPath) as! RepositCell
-        cell.nameLabel.text = searchResult.repos_url
-        cell.descriptionLabel.text = searchResult.html_url
-        cell.languageLabel.text = searchResult.login
+            cell.nameLabel.text = repositories[indexPath.row].name
+            cell.descriptionLabel.text = repositories[indexPath.row].description
+            cell.urlLabel.text = repositories[indexPath.row].url
+            cell.updated_atLabel.text = repositories[indexPath.row].updated_at
+            cell.stargazers_countLabel.text = "\(repositories[indexPath.row].stargazers_count)"
+            cell.forks_countLabel.text = "\(repositories[indexPath.row].forks_count)"
+            cell.languageLabel.text = repositories[indexPath.row].language
         return cell
         }
     }
-    
 }
+
+extension RepositoriesTableViewController {
+    
+    func loadRepositories(_ urlString: String) {
+        
+        var dataTask: URLSessionDataTask?
+        
+            
+            dataTask?.cancel()
+            isLoading = true
+            tableView.reloadData()
+            
+            repositories = []
+            
+            let url = URL(string: urlString)
+            
+            let session = URLSession.shared
+            dataTask = session.dataTask(with: url!) {data, response, error in
+                if let error = error as NSError?, error.code == -999 {
+                    return
+                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    if let data = data {
+                        self.repositories = self.parse(data: data)
+                        DispatchQueue.main.async {
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                        }
+                        return
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                        self.tableView.reloadData()
+                        //self.showNetworkError()
+                    }
+                }
+                
+            }
+            dataTask?.resume()
+        }
+
+    func parse(data: Data) -> [ReposInfo] {
+        do {
+            var repositories = [ReposInfo]()
+            
+            let decoder = JSONDecoder()
+            repositories = try decoder.decode([ReposInfo].self, from: data)
+            return repositories
+        } catch {
+            print("JSON Error: \(error)")
+            return []
+        }
+    }
+}
+
+
+/*
+ func parseFollowers(data: Data) -> [SearchResult] {
+     do {
+         var followers = [SearchResult]()
+         
+         let decoder = JSONDecoder()
+         followers = try decoder.decode([SearchResult].self, from: data)
+         return followers
+     } catch {
+         print("JSON Error: \(error)")
+         return []
+     }
+ }
+ */
+

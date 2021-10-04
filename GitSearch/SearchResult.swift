@@ -15,12 +15,12 @@ class ResultArray: Codable {
 class ReposInfo: Codable {
     
     var name = ""
-    var description = ""
-    var url = ""
-    var updated_at = ""
+    var description: String?
+    var url: String?
+    var updated_at: String?
     var stargazers_count: Int
     var forks_count: Int
-    var language = ""
+    var language: String?
 }
 
 class SearchResult: Codable, CustomStringConvertible {
