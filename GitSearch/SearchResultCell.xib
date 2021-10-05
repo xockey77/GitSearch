@@ -31,7 +31,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe8-vD-LM0">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe8-vD-LM0">
                         <rect key="frame" x="84" y="46" width="275" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
@@ -52,8 +52,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarImageView" destination="1Tp-cc-lZ0" id="4Gg-An-fjb"/>
+                <outlet property="followersLabel" destination="Qe8-vD-LM0" id="brK-UP-DkY"/>
                 <outlet property="loginLabel" destination="Cdj-7N-JSw" id="cm7-Qd-42x"/>
-                <outlet property="urlLabel" destination="Qe8-vD-LM0" id="brK-UP-DkY"/>
             </connections>
             <point key="canvasLocation" x="-290" y="-11"/>
         </tableViewCell>

@@ -34,8 +34,7 @@ class RepositoriesTableViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
         
         self.clearsSelectionOnViewWillAppear = false
-        
-        print("\(searchResult.repos_url)")
+    
         loadRepositories(searchResult.repos_url)
     }
 
@@ -113,7 +112,7 @@ extension RepositoriesTableViewController {
                     return
                 } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                     if let data = data {
-                        self.repositories = self.parse(data: data)
+                        self.repositories = Parser.parseArray(data: data, type: ReposInfo())
                         DispatchQueue.main.async {
                             self.isLoading = false
                             self.tableView.reloadData()
@@ -124,7 +123,6 @@ extension RepositoriesTableViewController {
                     DispatchQueue.main.async {
                         self.isLoading = false
                         self.tableView.reloadData()
-                        //self.showNetworkError()
                     }
                 }
                 
@@ -132,16 +130,4 @@ extension RepositoriesTableViewController {
             dataTask?.resume()
         }
 
-    func parse(data: Data) -> [ReposInfo] {
-        do {
-            var repositories = [ReposInfo]()
-            
-            let decoder = JSONDecoder()
-            repositories = try decoder.decode([ReposInfo].self, from: data)
-            return repositories
-        } catch {
-            print("JSON Error: \(error)")
-            return []
-        }
-    }
 }

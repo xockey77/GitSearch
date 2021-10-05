@@ -160,7 +160,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Pressed on \(indexPath.row)")
+    
         performSegue(withIdentifier: "ShowRepositories", sender: indexPath)
     }
     

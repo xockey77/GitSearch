@@ -10,7 +10,7 @@ import UIKit
 class SearchResultCell: UITableViewCell {
 
     @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
     var downloadTask: URLSessionDownloadTask?
@@ -19,29 +19,26 @@ class SearchResultCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
     func configure(for result: SearchResult) {
-        loginLabel.text = result.login
-        urlLabel.text = result.followers_url
         
+        loginLabel.text = result.login
+        followersLabel.text = result.followers_url
         avatarImageView.image = UIImage(systemName: "square")
         
         if let smallURL = URL(string: result.avatar_url) {
             downloadTask = avatarImageView.loadImage(url: smallURL)
         }
-        /*
         if let followersURL = URL(string: result.followers_url) {
             dataTask = loadFollowers(url: followersURL)
-        }*/
-        //print("\(result.followers_url)")
+        }
     }
     
     override func prepareForReuse() {
@@ -61,10 +58,10 @@ class SearchResultCell: UITableViewCell {
                 return
             } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 if let data = data {
-                    self.followers = self.parseFollowers(data: data)
-                    print(self.followers.count)
+                    self.followers = Parser.parseArray(data: data, type: SearchResult())
+                    //print(self.followers.count)
                     DispatchQueue.main.async {
-                        self.urlLabel.text = "\(self.followers.count) followers"
+                        self.followersLabel.text = "\(self.followers.count) followers"
                     }
                     return
                 }
@@ -79,19 +76,6 @@ class SearchResultCell: UITableViewCell {
         return dataTask
     }
 
-
-    func parseFollowers(data: Data) -> [SearchResult] {
-        do {
-            var followers = [SearchResult]()
-            
-            let decoder = JSONDecoder()
-            followers = try decoder.decode([SearchResult].self, from: data)
-            return followers
-        } catch {
-            print("JSON Error: \(error)")
-            return []
-        }
-    }
 }
 
 

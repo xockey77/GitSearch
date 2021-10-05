@@ -12,17 +12,6 @@ class ResultArray: Codable {
     var items = [SearchResult]()
 }
 
-class ReposInfo: Codable {
-    
-    var name = ""
-    var description: String?
-    var html_url: String?
-    var updated_at: String?
-    var stargazers_count: Int
-    var forks_count: Int
-    var language: String?
-}
-
 class SearchResult: Codable, CustomStringConvertible {
 
     var login = ""
@@ -35,10 +24,15 @@ class SearchResult: Codable, CustomStringConvertible {
     var description: String {
         return "Login: \(login)"
     }
+}
 
-    /*
-    enum CodingKeys: String, CodingKey {
-        
-    }
-    */
+class ReposInfo: Codable {
+    
+    var name = ""
+    var description: String?
+    var html_url: String?
+    var updated_at: String?
+    var stargazers_count: Int = 0
+    var forks_count: Int = 0
+    var language: String?
 }

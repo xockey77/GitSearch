@@ -22,6 +22,7 @@
 		3DFDD7012709FAEA004BBF86 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */; };
 		3DFDD703270ACB21004BBF86 /* RepositCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DFDD702270ACB21004BBF86 /* RepositCell.xib */; };
 		3DFDD705270ACCDA004BBF86 /* RepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDD704270ACCDA004BBF86 /* RepositCell.swift */; };
+		3DFDD707270C337F004BBF86 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDD706270C337F004BBF86 /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		3DFDD702270ACB21004BBF86 /* RepositCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositCell.xib; sourceTree = "<group>"; };
 		3DFDD704270ACCDA004BBF86 /* RepositCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositCell.swift; sourceTree = "<group>"; };
+		3DFDD706270C337F004BBF86 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				3DFDD704270ACCDA004BBF86 /* RepositCell.swift */,
 				3D12E0332707185A0087157F /* Main.storyboard */,
 				3DFDD7002709FAEA004BBF86 /* RepositoriesTableViewController.swift */,
+				3DFDD706270C337F004BBF86 /* Parser.swift */,
 				3D12E0362707185B0087157F /* Assets.xcassets */,
 				3D12E0382707185B0087157F /* LaunchScreen.storyboard */,
 				3D12E03B2707185B0087157F /* Info.plist */,
@@ -174,6 +177,7 @@
 				3DFDD705270ACCDA004BBF86 /* RepositCell.swift in Sources */,
 				3D12E04C2708E0310087157F /* UIImageView+DownloadImage.swift in Sources */,
 				3D12E04227072E370087157F /* SearchResult.swift in Sources */,
+				3DFDD707270C337F004BBF86 /* Parser.swift in Sources */,
 				3DFDD7012709FAEA004BBF86 /* RepositoriesTableViewController.swift in Sources */,
 				3D12E0302707185A0087157F /* SceneDelegate.swift in Sources */,
 				3D12E0462708AAB60087157F /* SearchResultCell.swift in Sources */,
